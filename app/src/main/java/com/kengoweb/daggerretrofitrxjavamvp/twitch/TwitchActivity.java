@@ -23,7 +23,6 @@ public class TwitchActivity extends AppCompatActivity {
     private static final String TAG = TwitchActivity.class.getSimpleName();
 
     private static final String TWITCH_CLIENT_ID = "iunfgd5jxxf2hb4um2in67dqkfp8qp";
-    private static final String TWITCH_CLIENT_SECRET = "l2355uy73a2yckdc0sgyzgfyhkhe3x";
 
     @Inject
     TwitchAPI twitchAPI;
