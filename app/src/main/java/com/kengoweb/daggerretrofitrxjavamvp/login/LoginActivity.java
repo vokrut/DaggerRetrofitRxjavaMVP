@@ -1,5 +1,6 @@
 package com.kengoweb.daggerretrofitrxjavamvp.login;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,10 +10,13 @@ import android.widget.Toast;
 
 import com.kengoweb.daggerretrofitrxjavamvp.MyApplication;
 import com.kengoweb.daggerretrofitrxjavamvp.R;
+import com.kengoweb.daggerretrofitrxjavamvp.twitch.TwitchActivity;
 
 import javax.inject.Inject;
 
 public class LoginActivity extends AppCompatActivity implements LoginInterface.View {
+
+    private static final String TAG = LoginActivity.class.getSimpleName();
 
     @Inject
     LoginInterface.Presenter presenter;
@@ -70,6 +74,7 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
     @Override
     public void showUserSavedMessage() {
         Toast.makeText(this, "User saved!", Toast.LENGTH_SHORT).show();
+        startTwitchActivity();
     }
 
     @Override
@@ -80,5 +85,11 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
     @Override
     public void setLastName(String lastName) {
         etLastName.setText(lastName);
+    }
+
+    private void startTwitchActivity() {
+        Intent intent = new Intent(this, TwitchActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
