@@ -12,7 +12,6 @@ import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingFlowParams;
 import com.android.billingclient.api.BillingResult;
 import com.android.billingclient.api.ConsumeParams;
-import com.android.billingclient.api.ConsumeResponseListener;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.android.billingclient.api.SkuDetails;
@@ -20,7 +19,6 @@ import com.android.billingclient.api.SkuDetailsParams;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by vokrut on 2019-07-31.
@@ -105,13 +103,14 @@ public class BillingManager implements PurchasesUpdatedListener {
     private void getUserPurchases() {
         Log.d(TAG, "getUserPurchases: ");
         List<Purchase> purchasesList = mBillingClient.queryPurchases(SkuType.INAPP).getPurchasesList();
+        Log.d(TAG, "getUserPurchases:" + purchasesList.size() + " purchasesList=" + purchasesList);
         for (Purchase purchase : purchasesList) {
+            Log.d(TAG, "getUserPurchases: purchase=" + purchase.getSku());
             if (purchase.getSku().equals(mSkuDetailsTestItem.getSku())) {
                 Log.d(TAG, "getUserPurchases: test item is purchased");
                 mBillingUpdatesListener.updateUserPurchase(purchase);
             }
         }
-        Log.d(TAG, "getUserPurchases: purchasesList=" + purchasesList);
     }
 
     public void buyItem(SkuDetails mSkuDetailsItem) {
