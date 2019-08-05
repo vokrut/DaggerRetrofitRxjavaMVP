@@ -5,4 +5,6 @@
     <string name="log_in">Log In</string>
     <string name="title_activity_login">Log In</string>
     <string name="title_activity_twitch">Twitch Games</string>
+    <string name="buy_noads">Buy NoAds</string>
+    <string name="consume_noads">Consume NoAds</string>
 </resources>

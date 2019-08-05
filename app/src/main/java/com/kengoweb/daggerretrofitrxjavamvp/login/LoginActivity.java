@@ -36,12 +36,7 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
         etLastName = findViewById(R.id.et_login_lastname);
         btnLogin = findViewById(R.id.btn_login_login);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.loginButtonClicked();
-            }
-        });
+        btnLogin.setOnClickListener(v -> presenter.loginButtonClicked());
     }
 
     @Override

@@ -1,6 +1,7 @@
 
 package com.kengoweb.daggerretrofitrxjavamvp.http.twitch.apimodel;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -15,7 +16,7 @@ public class Twitch {
     private Links links;
     @SerializedName("top")
     @Expose
-    private List<Top> top = null;
+    private List<Top> top = new ArrayList<>();
 
     public Integer getTotal() {
         return total;
